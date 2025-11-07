@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos adicionais */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f9fafb;
+  color: #1f2937;
+}
+
+.btn {
+  @apply px-4 py-2 rounded-lg font-semibold text-white bg-secondary hover:bg-blue-500 transition;
+}
+
+.btn-primary {
+  @apply bg-secondary hover:bg-blue-500;
+}
+
+.main-container {
+  @apply max-w-6xl mx-auto px-4;
+}
