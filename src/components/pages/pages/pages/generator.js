@@ -26,6 +26,7 @@ export default function Generator() {
 
   return (
     <div className="main-container py-12">
+
       {/* Header / breadcrumb */}
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold text-primary">Gerador de Memes</h1>
@@ -37,7 +38,8 @@ export default function Generator() {
 
       {/* Seção de seleção de template e texto */}
       <section className="grid md:grid-cols-2 gap-8 items-start">
-        {/* Controls */}
+
+        {/* Controles */}
         <div className="bg-white rounded-xl shadow p-6 flex flex-col gap-4">
           <label className="flex flex-col gap-1 text-sm font-medium text-slate-700">
             Escolha um Template
@@ -96,10 +98,12 @@ export default function Generator() {
             <MemeCanvas template={templateUrl} topText={topText} bottomText={bottomText} />
           </div>
         </div>
+
       </section>
 
       {/* Banner de anúncio final */}
       <AdBanner className="my-12" />
+
     </div>
   )
     }
