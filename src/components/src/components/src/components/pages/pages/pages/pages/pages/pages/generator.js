@@ -56,3 +56,71 @@ export default function Generator() {
       setLoading(false);
     }
   };
+  return (
+    <div className="main-container py-12">
+      <CookieBanner />
+
+      {/* Menu multilíngue */}
+      <div className="flex justify-end mb-6">
+        <select
+          value={lang}
+          onChange={handleLanguage}
+          className="border rounded px-3 py-1"
+        >
+          <option value="en">English</option>
+          <option value="pt">Português</option>
+          <option value="es">Español</option>
+        </select>
+      </div>
+
+      <h1 className="text-3xl font-bold mb-4">{languages[lang].title}</h1>
+
+      {/* Textarea do prompt */}
+      <textarea
+        className="border rounded p-3 w-full mb-4"
+        rows="3"
+        placeholder={languages[lang].placeholder}
+        value={prompt}
+        onChange={(e) => setPrompt(e.target.value)}
+      />
+
+      {/* Botão Gerar Meme */}
+      <button
+        onClick={generateMeme}
+        className="btn btn-primary mb-6"
+        disabled={loading}
+      >
+        {loading ? "Loading..." : languages[lang].generate}
+      </button>
+
+      {/* Preview do Meme */}
+      <MemeCanvas imageUrl={imageUrl} />
+
+      {/* Botão para compartilhar o meme */}
+      {imageUrl && (
+        <div className="flex justify-center mt-4 gap-4">
+          <a
+            href={imageUrl}
+            download="meme.png"
+            className="btn btn-primary"
+          >
+            Download Meme
+          </a>
+          <a
+            href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(
+              imageUrl
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary"
+          >
+            Share on Twitter
+          </a>
+        </div>
+      )}
+
+      {/* Banner de anúncios */}
+      <AdBanner className="mt-6" />
+    </div>
+  );
+    }
